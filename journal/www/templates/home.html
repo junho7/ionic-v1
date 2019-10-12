@@ -1,0 +1,54 @@
+<ion-view view-title="Journal">
+	<!--<ion-content >-->
+
+		<!--<ion-refresher
+				pulling-text="Refresh..."
+				on-refresh="doRefresh()" >
+		</ion-refresher >-->
+
+		<!--
+		This is the list of results rendered in the built in ionic 'card' list style.
+		-->
+		<!--<div class="list card"
+		     ng-repeat="post in feed.posts"
+			 ui-sref="post({id:post.link})" >
+			 <!-- ui-sref generates href
+			 	post() is from the state 'post'
+			 -->
+
+
+			<!--<div class="item" >
+				<h2 >{{ post.title }}</h2 >
+
+				<p class="sub-title" >{{ post.publishedDate|date:"fullDate" }}</p >
+			</div >
+
+			<div class="item item-image" ng-if="post.thumbnail" >
+				<img ng-src="{{ post.thumbnail }}" >
+			</div >
+
+			<div class="item item-body" >
+				<p >{{post.content|stripTags}}</p >
+			</div >
+		</div >-->
+
+            <ion-pane ng-controller="JournalController">
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Journal</h1>
+      </ion-header-bar>
+      <ion-content>
+            <button id="authorize-button" style="display: none;">Authorize</button>
+            <button id="signout-button" style="display: none;">Sign Out</button>
+            <button id="create-button" style="display: block;">Create</button>
+            <input type="text" id="search-keyword"><button id="open-button" style="display: block;">File Search</button>
+            <pre id="content"></pre>
+        <ion-list>
+          <ion-item ng-repeat="item in items.searchResult" ng-model="items.searchResult" ng-click="selectFile(item)">
+            {{item.name}}
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-pane>
+
+	<!--</ion-content >-->
+</ion-view >
